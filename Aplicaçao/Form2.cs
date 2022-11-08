@@ -32,7 +32,7 @@ namespace Aplicaçao
                 if(textBox2.Text == utilizador.Key && textBox1.Text == utilizador.Value)
                 {
                     isLogged = true;
-                    Form1.instance.Atualizar(textBox2.Text);
+                    Form1.instance.AtualizarLoginNome(textBox2.Text);
                 }
             }
             

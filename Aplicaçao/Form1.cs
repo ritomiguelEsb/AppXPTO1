@@ -37,9 +37,14 @@ namespace Aplicaçao
             {
                 loginForm.Show();
             }
+            else
+            {
+                Form2.isLogged = false;
+                AtualizarLoginNome("Login");
+            }
         }
 
-        public void Atualizar(string nome)
+        public void AtualizarLoginNome(string nome)
         {
             toolStripButton6.Text = nome;
         }
