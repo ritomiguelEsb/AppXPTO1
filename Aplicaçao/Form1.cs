@@ -12,9 +12,11 @@ namespace Aplicaçao
 {
     public partial class Form1 : Form
     {
+        public static Form1 instance;
         public Form1()
         {
             InitializeComponent();
+            instance = this;
         }
 
         private void noveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,7 +33,15 @@ namespace Aplicaçao
         {
             Form2 loginForm = new Form2();
             loginForm.MdiParent = this;
-            loginForm.Show();
+            if(!Form2.isLogged)
+            {
+                loginForm.Show();
+            }
+        }
+
+        public void Atualizar(string nome)
+        {
+            toolStripButton6.Text = nome;
         }
         
     }
