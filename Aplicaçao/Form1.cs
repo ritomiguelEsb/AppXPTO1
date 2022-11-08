@@ -29,7 +29,10 @@ namespace Aplicaçao
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
-
+            Form2 loginForm = new Form2();
+            loginForm.MdiParent = this;
+            loginForm.Show();
         }
+        
     }
 }
