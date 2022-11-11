@@ -17,6 +17,7 @@ namespace Aplicaçao
         {
             InitializeComponent();
             instance = this;
+            HabilitarFunc(false);
         }
 
         private void noveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,9 +40,22 @@ namespace Aplicaçao
             }
             else
             {
+                Form1.instance.HabilitarFunc(false);
                 Form2.isLogged = false;
                 AtualizarLoginNome("Login");
             }
+        }
+
+        public void HabilitarFunc(bool habilitar)
+        {
+            abrirToolStripMenuItem.Enabled = habilitar;
+            vendaToolStripMenuItem.Enabled = habilitar;
+            produtosToolStripMenuItem.Enabled = habilitar;
+            toolStripButton1.Enabled = habilitar;
+            toolStripButton2.Enabled = habilitar;
+            toolStripButton3.Enabled = habilitar;
+            toolStripButton4.Enabled = habilitar;
+            toolStripButton5.Enabled = habilitar;
         }
 
         public void AtualizarLoginNome(string nome)

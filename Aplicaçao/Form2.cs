@@ -33,9 +33,9 @@ namespace Aplicaçao
                 {
                     isLogged = true;
                     Form1.instance.AtualizarLoginNome(textBox2.Text);
+                    Form1.instance.HabilitarFunc(true);
                 }
             }
-            
             this.Close();
         }
 
