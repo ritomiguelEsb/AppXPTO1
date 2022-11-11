@@ -20,9 +20,15 @@ namespace Aplicaçao
             HabilitarFunc(false);
         }
 
+        private void menuVendas()
+        {
+            Form3 produtos = new Form3();
+            produtos.MdiParent = this;
+        }
+
         private void noveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void vendasMensaisToolStripMenuItem_Click(object sender, EventArgs e)
