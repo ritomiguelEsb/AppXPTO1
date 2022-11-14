@@ -38,17 +38,22 @@ namespace Aplicaçao
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
-            Form2 loginForm = new Form2();
-            loginForm.MdiParent = this;
+            
             if(!Form2.isLogged)
             {
+                Form2 loginForm = new Form2();
+                loginForm.MdiParent = this;
                 loginForm.Show();
             }
             else
             {
-                Form1.instance.HabilitarFunc(false);
-                Form2.isLogged = false;
-                AtualizarLoginNome("Login");
+                DialogResult result = MessageBox.Show("Deseja fazer o logout?","Logout", MessageBoxButtons.YesNo);
+                if(result == DialogResult.Yes)
+                {
+                    Form1.instance.HabilitarFunc(false);
+                    Form2.isLogged = false;
+                    AtualizarLoginNome("Login");
+                }
             }
         }
 
