@@ -20,21 +20,28 @@ namespace Aplicaçao
             HabilitarFunc(false);
         }
 
-        private void menuVendas()
+        private void menuProdutos()
         {
-            Form3 produtos = new Form3();
+            Form4 produtos = new Form4();
             produtos.MdiParent = this;
             produtos.Show();
         }
 
+        private void menuVendas()
+        {
+            Form3 vendas = new Form3();
+            vendas.MdiParent = this;
+            vendas.Show();
+        }
+
         private void noveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            menuVendas();
+            menuProdutos();
         }
 
         private void vendasMensaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            menuVendas();
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
@@ -51,6 +58,18 @@ namespace Aplicaçao
                 DialogResult result = MessageBox.Show("Deseja fazer o logout?","Logout", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
+                    if(Form3.instance != null)
+                    {                        
+                        Form3.instance.Close();
+                        Form3.instance.Dispose();
+                        Form4.instance = null;
+                    }
+                    if (Form4.instance != null)
+                    {
+                        Form4.instance.Close();
+                        Form4.instance.Dispose();
+                        Form4.instance = null;
+                    }
                     Form1.instance.HabilitarFunc(false);
                     Form2.isLogged = false;
                     AtualizarLoginNome("Login");
@@ -74,6 +93,46 @@ namespace Aplicaçao
         {
             toolStripButton6.Text = nome;
         }
-        
+
+        private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuVendas();
+        }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuVendas();
+        }
+
+        private void listagemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuProdutos();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuProdutos();
+        }
+
+        private void apagarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuProdutos();
+        }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuProdutos();
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string time = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":" + DateTime.Now.Second.ToString();
+            toolStripStatusLabel1.Text = time;
+        }
     }
 }

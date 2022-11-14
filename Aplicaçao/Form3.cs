@@ -25,6 +25,12 @@ namespace Aplicaçao
             {
                 instance = this;
             }
+            if(Form4.instance != null)
+            {
+                Form4.instance.Close();
+                Form4.instance.Dispose();
+                Form4.instance = null;
+            }
             StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
         }
@@ -33,12 +39,30 @@ namespace Aplicaçao
 
         private void button3_Click(object sender, EventArgs e)
         {
+            instance = null;
             this.Dispose();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            instance = null;
             this.Dispose();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            instance = null;
+            this.Dispose();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
