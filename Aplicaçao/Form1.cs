@@ -15,6 +15,7 @@ namespace Aplicaçao
         public static Form1 instance;
         public Form1()
         {
+            Produtos p = new Produtos();
             InitializeComponent();
             instance = this;
             HabilitarFunc(false);

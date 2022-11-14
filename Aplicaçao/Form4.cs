@@ -15,7 +15,9 @@ namespace Aplicaçao
         public static Form4 instance;
         public Form4()
         {
-            InitializeComponent();
+           InitializeComponent();
+            
+            
             if (instance != null)
             {
                 instance.Close();
@@ -34,6 +36,12 @@ namespace Aplicaçao
                 Form3.instance.Dispose();
                 Form4.instance = null;
             }
+            listBox1.Items.Clear();
+            for (int i = 1; i < Produtos.instance.getDictLenght(); i++)
+            {
+                var item = Produtos.instance.getProduct(i);
+                listBox1.Items.Add();
+            }
         }
 
         
@@ -46,6 +54,20 @@ namespace Aplicaçao
         private void Form4_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            for (int i = 1; i < Produtos.instance.getDictLenght() + 1; i++)
+            {
+                listBox1.Items.Add(Produtos.instance.getProduct(i));
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Produtos.instance.addProdutos(Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox1.Text), Convert.ToInt32(comboBox1.Text), textBox2.Text);
         }
     }
 }
