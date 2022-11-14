@@ -12,6 +12,7 @@ namespace Aplicaçao
 {
     public partial class Form4 : Form
     {
+        public static Form4 instance;
         public Form4()
         {
             InitializeComponent();
@@ -35,11 +36,16 @@ namespace Aplicaçao
             }
         }
 
-        public static Form4 instance;
+        
         private void button4_Click(object sender, EventArgs e)
         {
             instance = null;
             this.Dispose();
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

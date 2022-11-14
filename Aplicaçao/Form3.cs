@@ -12,6 +12,7 @@ namespace Aplicaçao
 {
     public partial class Form3 : Form
     {
+        public static Form3 instance;
         public Form3()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace Aplicaçao
             this.Location = new Point(0, 0);
         }
 
-        public static Form3 instance;
+
 
         private void button3_Click(object sender, EventArgs e)
         {
