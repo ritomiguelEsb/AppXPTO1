@@ -20,10 +20,23 @@ namespace Aplicaçao
         public Form2()
         {
             InitializeComponent();
+            if (instance != null)
+            {
+                instance.Dispose();
+                instance = this;
+            }
+            else
+            {
+                instance = this;
+            }
+            StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(0, 0);
             utilizadores.Add("ProfPaulo", "69");
             utilizadores.Add("Rito", "passsecreta");
             utilizadores.Add("Guest", "");
         }
+
+        public static Form2 instance;
 
         private void button1_Click(object sender, EventArgs e)
         {

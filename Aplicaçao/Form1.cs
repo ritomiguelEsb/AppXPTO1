@@ -24,11 +24,12 @@ namespace Aplicaçao
         {
             Form3 produtos = new Form3();
             produtos.MdiParent = this;
+            produtos.Show();
         }
 
         private void noveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            menuVendas();
         }
 
         private void vendasMensaisToolStripMenuItem_Click(object sender, EventArgs e)

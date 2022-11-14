@@ -15,6 +15,30 @@ namespace Aplicaçao
         public Form3()
         {
             InitializeComponent();
+            if(instance != null)
+            {
+                instance.Close();
+                instance.Dispose();
+                instance = this;
+            }
+            else
+            {
+                instance = this;
+            }
+            StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(0, 0);
+        }
+
+        public static Form3 instance;
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
