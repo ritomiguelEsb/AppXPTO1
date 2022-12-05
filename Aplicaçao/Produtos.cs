@@ -25,10 +25,10 @@ namespace Aplicaçao
             }
         }
 
-        public void addProdutos(int preco, int codigo, int categoria, string nomeDoProduto)
+        public void addProdutos(float preco, int codigo, int categoria, string nomeDoProduto)
         {
             int id = produtosDict.Count + 1;
-            Produto produto = new Produto( preco, codigo, categoria, nomeDoProduto);
+            Produto produto = new Produto( preco, codigo, categoria, nomeDoProduto, id);
             produtosDict.Add(id, produto);
         }
 
@@ -37,7 +37,7 @@ namespace Aplicaçao
             produtosDict.Remove(id);
         }
 
-        public object getProduct(int id)
+        public Produto getProduct(int id)
         {
             return produtosDict[id];
         }

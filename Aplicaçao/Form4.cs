@@ -39,8 +39,9 @@ namespace Aplicaçao
             listBox1.Items.Clear();
             for (int i = 1; i < Produtos.instance.getDictLenght(); i++)
             {
-                var item = Produtos.instance.getProduct(i);
-                listBox1.Items.Add();
+                var item = new Produto();
+                item = Produtos.instance.getProduct(i);
+                listBox1.Items.Add(item.getID() + "|"+ item.getNome() + " " + item.getPreco() + "€");
             }
         }
 
@@ -67,7 +68,7 @@ namespace Aplicaçao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Produtos.instance.addProdutos(Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox1.Text), Convert.ToInt32(comboBox1.Text), textBox2.Text);
+            Produtos.instance.addProdutos(float.Parse(textBox3.Text), Convert.ToInt32(textBox1.Text), Convert.ToInt32(comboBox1.Text), textBox2.Text);
         }
     }
 }
