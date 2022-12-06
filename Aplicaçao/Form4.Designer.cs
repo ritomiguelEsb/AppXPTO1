@@ -119,6 +119,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 23;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // listBox1
             // 
@@ -127,6 +128,8 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(298, 290);
             this.listBox1.TabIndex = 24;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedValueChanged);
             // 
             // imageList1
             // 
@@ -147,6 +150,7 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 

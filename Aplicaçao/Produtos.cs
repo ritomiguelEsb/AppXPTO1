@@ -17,6 +17,7 @@ namespace Aplicaçao
         private static Dictionary<int, Produto> produtosDict = new Dictionary<int, Produto>();
         public static Produtos instance;
 
+
         public Produtos()
         {
             if(instance == null)
@@ -25,7 +26,7 @@ namespace Aplicaçao
             }
         }
 
-        public void addProdutos(float preco, int codigo, int categoria, string nomeDoProduto)
+        public void addProdutos(float preco, int codigo, string categoria, string nomeDoProduto)
         {
             int id = produtosDict.Count + 1;
             Produto produto = new Produto( preco, codigo, categoria, nomeDoProduto, id);
@@ -39,7 +40,7 @@ namespace Aplicaçao
 
         public Produto getProduct(int id)
         {
-            return produtosDict[id];
+            return produtosDict[id+1];
         }
 
         public int getDictLenght()
