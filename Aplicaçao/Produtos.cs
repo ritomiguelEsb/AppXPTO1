@@ -8,6 +8,7 @@ using System.Security.Policy;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Aplicaçao
 {   
@@ -33,14 +34,34 @@ namespace Aplicaçao
             produtosDict.Add(id, produto);
         }
 
-        public void delProdutos(int id)
+        public void delProduct(int id)
         {
-            produtosDict.Remove(id);
+            produtosDict.Remove(id+1);
         }
 
         public Produto getProduct(int id)
         {
             return produtosDict[id+1];
+        }
+
+        //Função de guardar em xml
+
+        public void changeDict(int i)
+        {
+            i++;
+            for(int x=i; x < produtosDict.Count+1; x++)
+            {
+                try
+                {
+                    produtosDict[x] = produtosDict[x + 1];
+                    produtosDict[x].backID();
+                }
+                catch (Exception ex)
+                {
+                    produtosDict.Remove(x);
+                }
+            }
+            //produtosDict.Remove(produtosDict.Count);
         }
 
         public int getDictLenght()

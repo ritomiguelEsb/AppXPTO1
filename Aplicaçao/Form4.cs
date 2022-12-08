@@ -42,7 +42,11 @@ namespace Aplicaçao
         
         private void button4_Click(object sender, EventArgs e)
         {
-            
+            if (listBox1.SelectedIndex > -1)
+            {
+                Produtos.instance.delProduct(listBox1.SelectedIndex);
+                AtualizarLista();
+            }
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -50,14 +54,23 @@ namespace Aplicaçao
 
         }
 
+
         private void AtualizarLista()
         {
-
             listBox1.Items.Clear();
             for (int i = 0; i < Produtos.instance.getDictLenght(); i++)
             {
                 var item = new Produto();
-                item = Produtos.instance.getProduct(i);
+                try
+                {
+                    item = Produtos.instance.getProduct(i);
+                }
+                catch
+                {
+                    Produtos.instance.changeDict(i);
+                    AtualizarLista();
+                    break;
+                }
                 listBox1.Items.Add(item.getID().ToString() + "| " + item.getNome().ToString() + " Preço:" + item.getPreco().ToString() + "€");
             }
         }
@@ -121,6 +134,15 @@ namespace Aplicaçao
         private void listBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex > -1)
+            {
+                MessageBox.Show(listBox1.SelectedIndex.ToString() + Produtos.instance.getDictLenght().ToString()+ Produtos.instance.getProduct(listBox1.SelectedIndex).getNome());
+                AtualizarLista();
+            }
         }
     }
 }

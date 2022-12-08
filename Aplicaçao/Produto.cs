@@ -41,6 +41,11 @@ namespace Aplicaçao
             this.nomeDoProduto = nomeDoProduto;
         }
 
+        public void backID()
+        {
+            this.ID--;
+        }
+
         public string getNome()
         {
             return nomeDoProduto;
