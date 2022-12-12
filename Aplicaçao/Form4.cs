@@ -36,29 +36,43 @@ namespace Aplicaçao
                 Form3.instance.Dispose();
                 Form4.instance = null;
             }
-            AtualizarLista();
+            
         }
 
         
         private void button4_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex > -1)
+            if (dataGridView1.CurrentRow.Index > -1)
             {
-                Produtos.instance.delProduct(listBox1.SelectedIndex);
+                int valorID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                Produtos.instance.delProduct(valorID);
                 AtualizarLista();
+                MessageBox.Show("Produto " + valorID.ToString() + " foi apagado!" , "Aviso");
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    dataGridView1.CurrentRow.Selected = false;
+                }
+                limparInputs();
             }
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.Columns.Add("ID", "ID");
+            dataGridView1.Columns.Add("Nome", "Nome");
+            dataGridView1.Columns.Add("Categoria", "Categoria");
+            dataGridView1.Columns.Add("Preco", "Preco");
+            dataGridView1.Columns.Add("Codigo", "Codigo");
+            AtualizarLista();
         }
 
 
         private void AtualizarLista()
         {
-            listBox1.Items.Clear();
-            for (int i = 0; i < Produtos.instance.getDictLenght(); i++)
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Rows.Clear();
+            dataGridView1.ReadOnly = true;
+            for (int i =1; i < Produtos.instance.getDictLenght()+1; i++)
             {
                 var item = new Produto();
                 try
@@ -71,18 +85,20 @@ namespace Aplicaçao
                     AtualizarLista();
                     break;
                 }
-                listBox1.Items.Add(item.getID().ToString() + "| " + item.getNome().ToString() + " Preço:" + item.getPreco().ToString() + "€");
+                dataGridView1.Rows.Add(item.getID().ToString(),item.getNome().ToString(),item.getCategoria(),item.getPreco().ToString() + "€", item.getCodigo());
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex > -1)
+            if (dataGridView1.CurrentRow.Index > -1)
             {
-                var item = Produtos.instance.getProduct(listBox1.SelectedIndex);
-                int id = item.getID();
-                item.setAtributo(float.Parse(textBox3.Text), Convert.ToInt32(textBox1.Text), comboBox1.Text, textBox2.Text, id);
+                int valorID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                var item = Produtos.instance.getProduct(valorID);
+                item.setAtributo(float.Parse(textBox3.Text), Convert.ToInt32(textBox1.Text), comboBox1.Text, textBox2.Text, Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
                 AtualizarLista();
+                MessageBox.Show("Valores de produto " + valorID.ToString() + " foram alterados!", "Aviso");
+                limparInputs();
             }
         }
 
@@ -96,6 +112,8 @@ namespace Aplicaçao
                     {
                         Produtos.instance.addProdutos(float.Parse(textBox3.Text), Convert.ToInt32(textBox1.Text), comboBox1.Text, textBox2.Text);
                         AtualizarLista();
+                        MessageBox.Show("Novo produto adicionado!", "Aviso");
+                        limparInputs();
                         return;
                     }
                 }
@@ -106,6 +124,7 @@ namespace Aplicaçao
             {
                 MessageBox.Show("Insira corretamente os dados", "Erro ao adicionar");
             }
+           
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -119,29 +138,51 @@ namespace Aplicaçao
             
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void limparInputs()
         {
-            if(listBox1.SelectedIndex >-1)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                var item = Produtos.instance.getProduct(listBox1.SelectedIndex);
-                textBox3.Text = item.getPreco().ToString();
-                textBox1.Text = item.getCodigo().ToString();
-                textBox2.Text = item.getNome().ToString();
-                comboBox1.Text = item.getCategoria();
+                dataGridView1.CurrentRow.Selected = false;
             }
-        }
-
-        private void listBox1_SelectedValueChanged(object sender, EventArgs e)
-        {
-            
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            comboBox1.SelectedIndex = -1;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex > -1)
+
+                
+                limparInputs();
+            
+            /*if (listBox1.SelectedIndex > -1)
             {
                 MessageBox.Show(listBox1.SelectedIndex.ToString() + Produtos.instance.getDictLenght().ToString()+ Produtos.instance.getProduct(listBox1.SelectedIndex).getNome());
                 AtualizarLista();
+            }*/
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentRow.Index > -1)
+            {
+                int valorID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                var item = Produtos.instance.getProduct(valorID);
+                textBox3.Text = item.getPreco().ToString();
+                textBox1.Text = item.getCodigo().ToString();
+                textBox2.Text = item.getNome().ToString();
+                comboBox1.Text = item.getCategoria();
             }
         }
     }

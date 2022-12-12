@@ -36,19 +36,18 @@ namespace Aplicaçao
 
         public void delProduct(int id)
         {
-            produtosDict.Remove(id+1);
+            produtosDict.Remove(id);
         }
 
         public Produto getProduct(int id)
         {
-            return produtosDict[id+1];
+            return produtosDict[id];
         }
 
         //Função de guardar em xml
 
         public void changeDict(int i)
         {
-            i++;
             for(int x=i; x < produtosDict.Count+1; x++)
             {
                 try
@@ -56,7 +55,7 @@ namespace Aplicaçao
                     produtosDict[x] = produtosDict[x + 1];
                     produtosDict[x].backID();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     produtosDict.Remove(x);
                 }
