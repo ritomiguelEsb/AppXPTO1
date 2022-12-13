@@ -27,7 +27,7 @@ namespace Aplicaçao
             }
         }
 
-        public void addProdutos(float preco, int codigo, string categoria, string nomeDoProduto)
+        public void addProdutos(double preco, int codigo, string categoria, string nomeDoProduto)
         {
             int id = produtosDict.Count + 1;
             Produto produto = new Produto( preco, codigo, categoria, nomeDoProduto, id);

@@ -85,7 +85,7 @@ namespace Aplicaçao
                     AtualizarLista();
                     break;
                 }
-                dataGridView1.Rows.Add(item.getID().ToString(),item.getNome().ToString(),item.getCategoria(),item.getPreco().ToString() + "€", item.getCodigo());
+                dataGridView1.Rows.Add(item.getID().ToString(),item.getNome().ToString(),item.getCategoria(),item.getPreco().ToString("0.00") + "€", item.getCodigo());
             }
         }
 
@@ -93,13 +93,25 @@ namespace Aplicaçao
         {
             if (dataGridView1.CurrentRow.Index > -1)
             {
+                if (isCaixasVazias()) return;
                 int valorID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
                 var item = Produtos.instance.getProduct(valorID);
-                item.setAtributo(float.Parse(textBox3.Text), Convert.ToInt32(textBox1.Text), comboBox1.Text, textBox2.Text, Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+                item.setAtributo(double.Parse(textBox3.Text), Convert.ToInt32(textBox1.Text), comboBox1.Text, textBox2.Text, Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
                 AtualizarLista();
                 MessageBox.Show("Valores de produto " + valorID.ToString() + " foram alterados!", "Aviso");
                 limparInputs();
             }
+        }
+
+        private bool isCaixasVazias()
+        {
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Existe espaços vazios", "Erro");
+                return true;
+            }
+
+            return false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -110,7 +122,8 @@ namespace Aplicaçao
                 {
                     if (item.ToString() == comboBox1.Text)
                     {
-                        Produtos.instance.addProdutos(float.Parse(textBox3.Text), Convert.ToInt32(textBox1.Text), comboBox1.Text, textBox2.Text);
+                        if (isCaixasVazias()) return;
+                        Produtos.instance.addProdutos(double.Parse(textBox3.Text), Convert.ToInt32(textBox1.Text), comboBox1.Text, textBox2.Text);
                         AtualizarLista();
                         MessageBox.Show("Novo produto adicionado!", "Aviso");
                         limparInputs();

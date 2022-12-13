@@ -9,7 +9,7 @@ namespace Aplicaçao
     public class Produto
     {
         int ID;
-        float preco;
+        double preco;
         int codigo;
         string categoria;
         string nomeDoProduto;
@@ -23,7 +23,7 @@ namespace Aplicaçao
             this.nomeDoProduto = "";
         }
 
-        public Produto(float preco, int codigo, string categoria, string nomeDoProduto, int ID)
+        public Produto(double preco, int codigo, string categoria, string nomeDoProduto, int ID)
         {
             this.ID = ID;
             this.preco = preco;
@@ -32,7 +32,7 @@ namespace Aplicaçao
             this.nomeDoProduto = nomeDoProduto;
         }
 
-        public void setAtributo(float preco, int codigo, string categoria, string nomeDoProduto, int ID)
+        public void setAtributo(double preco, int codigo, string categoria, string nomeDoProduto, int ID)
         {
             this.ID = ID;
             this.preco = preco;
@@ -50,7 +50,7 @@ namespace Aplicaçao
         {
             return nomeDoProduto;
         }
-        public float getPreco()
+        public double getPreco()
         {
             return preco;
         }
