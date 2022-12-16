@@ -142,6 +142,7 @@ namespace Aplicaçao
 
         private void button5_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Dados salvos!");
             instance = null;
             this.Dispose();
         }
