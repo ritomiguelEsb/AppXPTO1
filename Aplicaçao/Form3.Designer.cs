@@ -60,6 +60,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 6;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -102,7 +103,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(63, 134);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(731, 100);
+            this.groupBox1.Size = new System.Drawing.Size(611, 100);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
@@ -111,14 +112,14 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(157, 28);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(547, 26);
+            this.textBox4.Size = new System.Drawing.Size(448, 26);
             this.textBox4.TabIndex = 18;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(429, 66);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(275, 26);
+            this.textBox3.Size = new System.Drawing.Size(176, 26);
             this.textBox3.TabIndex = 17;
             // 
             // textBox2
@@ -157,17 +158,18 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(48, 48);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton5,
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3,
-            this.toolStripButton4});
+            this.toolStripButton4,
+            this.toolStripButton5});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(818, 40);
             this.toolStrip1.TabIndex = 16;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripButton1
             // 
@@ -179,8 +181,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripButton1.Size = new System.Drawing.Size(44, 40);
-            this.toolStripButton1.Text = "Adicionar";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // toolStripButton2
             // 
@@ -192,7 +193,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripButton2.Size = new System.Drawing.Size(44, 40);
-            this.toolStripButton2.Text = "Salvar Alterarações";
+            this.toolStripButton2.Text = "toolStripButton2";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton3
@@ -205,8 +206,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripButton3.Size = new System.Drawing.Size(44, 40);
-            this.toolStripButton3.Text = "Desfazer Alterações";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.toolStripButton3.Text = "toolStripButton3";
             // 
             // toolStripButton4
             // 
@@ -218,7 +218,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripButton4.Size = new System.Drawing.Size(44, 40);
-            this.toolStripButton4.Text = "Eliminar Registo";
+            this.toolStripButton4.Text = "toolStripButton4";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton5
@@ -231,8 +231,7 @@
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripButton5.Size = new System.Drawing.Size(44, 40);
-            this.toolStripButton5.Text = "Guardar Registos";
-            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            this.toolStripButton5.Text = "toolStripButton5";
             // 
             // label3
             // 
@@ -247,10 +246,6 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Ecrã não liga",
-            "Problema com Ram",
-            "Problema com gráfica"});
             this.comboBox1.Location = new System.Drawing.Point(220, 276);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -260,7 +255,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(682, 280);
+            this.checkBox1.Location = new System.Drawing.Point(557, 280);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(85, 20);
             this.checkBox1.TabIndex = 21;
@@ -269,19 +264,12 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(64, 312);
-            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(730, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(610, 150);
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // Form3
             // 
@@ -298,10 +286,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "Form3";
-            this.Text = "Registos";
+            this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
