@@ -303,7 +303,6 @@
             this.toolStripButton5.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.toolStripButton5.Size = new System.Drawing.Size(32, 24);
             this.toolStripButton5.Text = "toolStripButton5";
-            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // toolStripButton6
             // 

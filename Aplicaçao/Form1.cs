@@ -15,7 +15,6 @@ namespace Aplicaçao
         public static Form1 instance;
         public Form1()
         {
-            Produtos p = new Produtos();
             InitializeComponent();
             instance = this;
             HabilitarFunc(false);
@@ -137,11 +136,6 @@ namespace Aplicaçao
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton5_Click(object sender, EventArgs e)
         {
 
         }

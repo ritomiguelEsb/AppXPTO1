@@ -1,2 +1,0 @@
-1;123;22/01/2023 17:04:50;sdfgsdfg;12312;sdfgsd;Ecrã não liga;False;
-2;31231;22/01/2023 17:07:52;Maryponei;3123123;pçsdfhngiosdhfhdfguio;Problema com gráfica;False;
