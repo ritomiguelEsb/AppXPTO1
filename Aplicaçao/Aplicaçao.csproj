@@ -75,6 +75,7 @@
     <Compile Include="Produtos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registos.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,7 +133,7 @@
     <None Include="Resources\Actions-document-save-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Database\" />
+    <Folder Include="database\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
