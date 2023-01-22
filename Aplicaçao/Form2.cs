@@ -50,7 +50,6 @@ namespace Aplicaçao
                 }
             }
             this.Close();
-            this.Dispose();
         }
 
     private void textBox2_TextChanged(object sender, EventArgs e)
