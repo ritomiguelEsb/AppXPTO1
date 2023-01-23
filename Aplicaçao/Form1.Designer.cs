@@ -240,6 +240,7 @@
             this.toolStrip1.AllowMerge = false;
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2,
@@ -249,7 +250,7 @@
             this.toolStripButton6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(982, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(982, 55);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
@@ -261,7 +262,7 @@
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripButton1.Size = new System.Drawing.Size(32, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(56, 52);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // toolStripButton2
@@ -271,7 +272,7 @@
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripButton2.Size = new System.Drawing.Size(32, 24);
+            this.toolStripButton2.Size = new System.Drawing.Size(56, 52);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
             // toolStripButton3
@@ -281,7 +282,7 @@
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripButton3.Size = new System.Drawing.Size(32, 24);
+            this.toolStripButton3.Size = new System.Drawing.Size(56, 52);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
             // toolStripButton4
@@ -291,7 +292,7 @@
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripButton4.Size = new System.Drawing.Size(32, 24);
+            this.toolStripButton4.Size = new System.Drawing.Size(56, 52);
             this.toolStripButton4.Text = "toolStripButton4";
             // 
             // toolStripButton5
@@ -301,7 +302,7 @@
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripButton5.Size = new System.Drawing.Size(32, 24);
+            this.toolStripButton5.Size = new System.Drawing.Size(56, 52);
             this.toolStripButton5.Text = "toolStripButton5";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
@@ -314,7 +315,7 @@
             this.toolStripButton6.Margin = new System.Windows.Forms.Padding(0, 1, 50, 2);
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton6.Size = new System.Drawing.Size(66, 24);
+            this.toolStripButton6.Size = new System.Drawing.Size(90, 52);
             this.toolStripButton6.Text = "Login";
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
